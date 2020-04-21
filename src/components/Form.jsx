@@ -25,13 +25,24 @@ export const Form = (props) => {
         setComment("");
     };
 
-    const  keydownHandler = (event) =>{
-        if(event.keyCode===13 && event.ctrlKey) handleSubmit()
+    const  keydownHandler = (e) =>{
+        if(e.keyCode===13 && e.ctrlKey) {
+            handleSubmit();
+            e.preventDefault();
+        }
     };
 
     useEffect(() => {
-        document.addEventListener('keydown', keydownHandler);
-    }, []);
+        document.addEventListener("keydown", keydownHandler);
+        // document.getElementsByClassName('btn')[0].addEventListener("keydown", keydownHandler);
+    }, );
+
+    // const btn = document.getElementsByClassName("btn");
+    // console.log(btn, "btn");
+    //
+    // useEffect(() => {
+    //     btn[0].addEventListener('keydown', keydownHandler);
+    // }, );
 
 
     return (
